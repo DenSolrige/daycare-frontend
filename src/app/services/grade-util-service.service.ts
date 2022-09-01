@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom, observable } from 'rxjs';
-import { Grade } from '../models/Grade';
+import { Grade } from '../models/grade';
 
 @Injectable({
   providedIn: 'root'
