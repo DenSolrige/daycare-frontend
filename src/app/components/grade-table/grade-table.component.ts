@@ -10,7 +10,7 @@ import { GradeUtilServiceService } from 'src/app/services/grade-util-service.ser
 export class GradeTableComponent implements OnInit {
 
   constructor(private gradeService:GradeUtilServiceService) { }
-
+  
   ngOnInit(): void {
     (async() => {
       this.grade = await this.gradeService.createGrade(grade);
