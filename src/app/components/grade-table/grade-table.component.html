@@ -1,1 +1,29 @@
-<p>grade-table works!</p>
+<h3>Student Grades</h3>
+
+<h4 *ngIf="grades.length === 0"> Loading Grades</h4>
+
+<table *ngIf="grades.length !==0">
+<thead>
+    <tr>
+        <th>grade Id</th>
+        <th>student Id</th>
+        <th>Time Reported</th>
+        <th>Note</th>
+        <th>Behavior</th>
+    </tr>
+</thead>
+<tbody>
+<tr *ngFor="let g of grades">
+    <td>{{g.gradeId}}</td>
+    <th>{{g.studentId}}</th>
+</tr>
+
+
+
+
+
+</tbody>
+
+
+
+</table>
