@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Student } from 'src/app/models/student';
+import { StudentUtilServiceService } from 'src/app/services/student-util-service.service';
 
 @Component({
   selector: 'app-student-table',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private studentService:StudentUtilServiceService) { }
+
+  students:Student[] = [];
 
   ngOnInit(): void {
+    (async () =>{
+      this.students = await this.studentService.getAllStudents();
+    })();
   }
 
 }

@@ -1,1 +1,14 @@
 <p>student-table works!</p>
+<thead>
+    <tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Guardian</th></tr>
+</thead>
+<tbody>
+    <!-- <tr><td>101</td><td>Burger</td><td>Chance</td><td>Yes</td></tr>
+    <tr><td>202</td><td>TKAM</td><td>Harper Lee</td><td>No</td></tr> -->
+    <tr *ngFor="let s of students">
+        <td>{{s.studentId}}</td>
+        <td>{{s.firstName}}</td>
+        <td>{{s.lastName}}</td>
+        <td>{{s.guardianUsername}}</td>
+    </tr>
+</tbody>
