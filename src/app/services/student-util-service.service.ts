@@ -11,19 +11,19 @@ export class StudentUtilServiceService {
   constructor(private http:HttpClient) { }
 
   async getAllStudents():Promise<Student[]>{
-    const observable = this.http.get<Student[]>("localhost:8080/students");
+    const observable = this.http.get<Student[]>("https://localhost:8080/students");
     const savedStudents = await firstValueFrom(observable);
     return savedStudents;
   }
 
   async createStudent(student:Student):Promise<Student>{
-    const observable = this.http.post<Student>("localhost:8080/students", student);
+    const observable = this.http.post<Student>("https://localhost:8080/students", student);
     const savedStudent = firstValueFrom(observable);
     return savedStudent;
   }
 
   async deleteStudent(id:number){
-    const observable = this.http.delete<Student>(`localhost:8080/students/${id}`);
+    const observable = this.http.delete<Student>(`https://localhost:8080/students/${id}`);
   }
 
   async getStudentByName(firstName:string, lastName:string):Promise<Student[]>{
