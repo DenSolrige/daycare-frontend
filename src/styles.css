@@ -1,10 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-    background-color:deepskyblue;
-
+body {   
+    text-align: center;
+    margin: auto;
+    background-color: deepskyblue;
+}
+nav {
+    width: 100%;
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+    color: darkgreen;
 }
 button {
-    color:darkgreen;
-
+    width: 20%;
+    background-color: crimson;
+    border-radius: 25px;
+    border-color: darkred;
+    border: 2px;
+    border-style: dashed;
+}
+table {
+    width: 75%;
+    margin: auto;
+    text-align: center;
+    background-color: blue;
+}
+legend {
+    color: darkred;
+    font-size: 50px;
+}
+tr {
+    width: 100%;
+    color: coral;
+    border-bottom: 2px;
+    border: 2px;
+    border-style: dashed;
+    border-color: aliceblue;
+}
+td {
+    border-bottom: 2px;
+    border: 2px;
+    border-style: dashed;
+    border-color: aliceblue;
+    width:25%;
+}
+.a {
+    font-size: 35px;
+}
+.b {
+    font-size: 30px;
+}
+form {
+    border: 2px;
 }
 
