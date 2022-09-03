@@ -26,7 +26,7 @@ export class StudentUtilServiceService {
     const observable = this.http.delete(`http://localhost:8080/students/${id}`);
     const savedStudent = await firstValueFrom(observable);
   }
-
+  
   async getStudentByName(name:string):Promise<Student[]>{
     const observable = this.http.get<Student[]>(`http://localhost:8080/students?name=${name}`);
     const savedStudents = await firstValueFrom(observable);
