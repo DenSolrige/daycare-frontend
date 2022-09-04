@@ -10,12 +10,24 @@ import { GradeUtilServiceService } from 'src/app/services/grade-util-service.ser
 export class GradeTableComponent implements OnInit {
 
   constructor(private gradeService:GradeUtilServiceService) { }
-  grades: Grade;
+  grades:Grade[] = [];
+
   ngOnInit(): void {
     (async () => {
-    this.grade = await this.gradeService.createGrade(this.grade);
     })();   
     
   }
 
+  getGradeByStudentId(id:number) {
+    
+  }
+
+  deleteGrade(id:number) {
+    const confirm = window.confirm("Are you sure you want to delete this grade?\nPress OK to delete.")
+    if(confirm) {
+      this.gradeService.deleteGradeById(id);
+      window.location.reload();
+    }
+  }
+ 
 }
