@@ -1,8 +1,8 @@
 <h3>Student Grades</h3>
 
-<h4 *ngIf="grades.length === 0"> Loading Grades</h4>
-
-<table *ngIf="grades.length !==0">
+<input name= "idInput" type="number" [(ngModel)]="studentId">
+<button (click)="getGradeByStudentId()">Search Grade</button>
+<br>
 <thead>
     <tr>
         <th>grade Id</th>
@@ -15,10 +15,11 @@
 <tbody>
 <tr *ngFor="let g of grades">
     <td>{{g.gradeId}}</td>
-    <th>{{g.studentId}}</th>
-    <th>{{g.timeReported}}</th>
-    <th>{{g.note}}</th>
-    <th>{{g.behavior}}</th>
+    <td>{{g.studentId}}</td>
+    <td>{{g.timeReported}}</td>
+    <td>{{g.note}}</td>
+    <td>{{g.behavior}}</td>
+    <td><button (click)="deleteGrade(g.gradeId)">Delete Grade</button></td>
 </tr>
 </tbody>
-</table>
+

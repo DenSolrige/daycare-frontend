@@ -11,14 +11,19 @@ export class GradeTableComponent implements OnInit {
 
   constructor(private gradeService:GradeUtilServiceService) { }
   grades:Grade[] = [];
-
+  studentId:number = 0;
   ngOnInit(): void {
     (async () => {
     })();   
     
   }
 
-  getGradeByStudentId(id:number) {
+  getGradeByStudentId() {
+    if(this.studentId != 0) {
+      (async () => {
+        this.grades = await this.gradeService.getGradesByStudentId(this.studentId);
+      })
+    }
     
   }
 
