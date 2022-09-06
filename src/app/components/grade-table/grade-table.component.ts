@@ -19,10 +19,7 @@ export class GradeTableComponent implements OnInit {
   newId = 0;
 
   ngOnInit(): void {
-     {
       this.getGradeByStudentId();
-    };   
-    
   }
   async createGrade() {
     const grade:Grade = {gradeId:0, studentId:this.studentId, note:this.note, timeReported:Math.round(Date.now() / 1000)
@@ -31,11 +28,10 @@ export class GradeTableComponent implements OnInit {
     this.newId = newGrade.gradeId;
   }
 
-  getGradeByStudentId() {
+  async getGradeByStudentId() {
     if(this.studentId != 0) {
-      (async () => {
         this.grades = await this.gradeService.getGradesByStudentId(this.studentId);
-      })
+        console.log("Called..");
     }
     
   }
