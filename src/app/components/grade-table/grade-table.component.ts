@@ -12,9 +12,15 @@ export class GradeTableComponent implements OnInit {
   constructor(private gradeService:GradeUtilServiceService) { }
   grades:Grade[] = [];
   studentId:number = 0;
+  note:string="";
+  timeReported:number = 0;
+  behavior:string = "";
   ngOnInit(): void {
     (async () => {
     })();   
+    
+  }
+  addGrade() {
     
   }
 
