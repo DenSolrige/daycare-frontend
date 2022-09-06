@@ -24,5 +24,6 @@ export class GradeUtilServiceService {
 
   async deleteGradeById(id:number){
     const observable = this.http.delete<Grade>(`http://localhost:8080/grades/${id}`)
+    const grade = await firstValueFrom(observable);
   }
 }
