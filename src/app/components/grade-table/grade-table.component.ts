@@ -22,8 +22,10 @@ export class GradeTableComponent implements OnInit {
     })();   
     
   }
-  createGrade() {
-    const grade:Grade = {gradeId:0, studentId:0, this.note}
+  async createGrade() {
+    const grade:Grade = {gradeId:0, studentId:0, note:this.note, timeReported:0, behavior:this.behavior};
+    const newGrade:Grade = await this.gradeService.createGrade(grade);
+    this.newId = newGrade.gradeId;
   }
 
   getGradeByStudentId() {
