@@ -29,7 +29,7 @@
 <tr *ngFor="let g of grades">
     <td>{{g.gradeId}}</td>
     <td>{{g.studentId}}</td>
-    <td>{{g.timeReported}}</td>
+    <td>{{g.timeReported * 1000 | date:'short'}}</td>
     <td>{{g.note}}</td>
     <td>{{g.behavior}}</td>
     <td><button (click)="deleteGrade(g.gradeId)">Delete Grade</button></td>
