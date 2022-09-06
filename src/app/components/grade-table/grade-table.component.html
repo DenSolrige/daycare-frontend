@@ -1,1 +1,41 @@
-<p>grade-table works!</p>
+<h3>Student Grades</h3>
+
+<form>
+    <fieldset>
+    <legend>Create new Grade!</legend>
+    <label for="timeReported"> Reported Time: </label>
+    <input name="timeReported" type="number" [(ngModel)]="timeReported">
+    <br>
+
+    <label for="note"> Note: </label>
+    <input name="note" type="text" [(ngModel)]="note">
+
+    <label for="behavior"> Behavior: </label>
+    <input name="behavior" type="text" [(ngModel)]="behavior">
+</fieldset>
+<button (click)="createGrade()">Add Grade</button>
+</form>
+
+<input name= "idInput" type="number" [(ngModel)]="studentId">
+<button (click)="getGradeByStudentId()">Search Grade</button>
+<br>
+<thead>
+    <tr>
+        <th>grade Id</th>
+        <th>student Id</th>
+        <th>Time Reported</th>
+        <th>Note</th>
+        <th>Behavior</th>
+    </tr>
+</thead>
+<tbody>
+<tr *ngFor="let g of grades">
+    <td>{{g.gradeId}}</td>
+    <td>{{g.studentId}}</td>
+    <td>{{g.timeReported}}</td>
+    <td>{{g.note}}</td>
+    <td>{{g.behavior}}</td>
+    <td><button (click)="deleteGrade(g.gradeId)">Delete Grade</button></td>
+</tr>
+</tbody>
+
