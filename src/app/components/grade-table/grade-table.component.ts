@@ -15,17 +15,17 @@ export class GradeTableComponent implements OnInit {
   grades:Grade[] = [];
   studentId:number = this.studentIdData.studentId;
   note:string="";
-  timeReported:string =""; 
   behavior:string = "";
   newId = 0;
 
   ngOnInit(): void {
-    (async () => {
-    })();   
+     {
+      this.getGradeByStudentId();
+    };   
     
   }
   async createGrade() {
-    const grade:Grade = {gradeId:0, studentId:0, note:this.note, timeReported:Math.round(Date.now() / 1000)
+    const grade:Grade = {gradeId:0, studentId:this.studentId, note:this.note, timeReported:Math.round(Date.now() / 1000)
     , behavior:this.behavior};
     const newGrade:Grade = await this.gradeService.createGrade(grade);
     this.newId = newGrade.gradeId;
