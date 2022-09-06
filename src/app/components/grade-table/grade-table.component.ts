@@ -20,8 +20,8 @@ export class GradeTableComponent implements OnInit {
     })();   
     
   }
-  addGrade() {
-    
+  createGrade() {
+
   }
 
   getGradeByStudentId() {
