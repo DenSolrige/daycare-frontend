@@ -15,6 +15,7 @@ export class GradeTableComponent implements OnInit {
   note:string="";
   timeReported:number = 0;
   behavior:string = "";
+  newId = 0;
 
   ngOnInit(): void {
     (async () => {
@@ -22,7 +23,7 @@ export class GradeTableComponent implements OnInit {
     
   }
   createGrade() {
-    
+    const grade:Grade = {gradeId:0, studentId:0, this.note}
   }
 
   getGradeByStudentId() {
