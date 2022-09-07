@@ -1,7 +1,7 @@
 <p>student-table works!</p>
 
 <input name="nameInput" type="text" [(ngModel)]="studentName">
-<button (click)="getStudentsWithName()">Search</button>
+<button class="btnForm" (click)="getStudentsWithName()">Search</button>
 <br>
 
 <thead>
@@ -13,7 +13,7 @@
         <td>{{s.firstName}}</td>
         <td>{{s.lastName}}</td>
         <td>{{s.guardianUsername}}</td>
-        <td><button (click)="viewGrades(s.studentId)">View Grades</button></td>
-        <td><button (click)="deleteStudent(s.studentId)">Delete</button></td>
+        <td><button class="btnTable" (click)="viewGrades(s.studentId)">View Grades</button></td>
+        <td><button class="btnTable" (click)="deleteStudent(s.studentId)">Delete</button></td>
     </tr>
 </tbody>

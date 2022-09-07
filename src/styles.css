@@ -2,11 +2,14 @@ body {
     font-family: 'Rammetto One';
     text-align: center;
     margin: auto;
-    background:url(assets/ttgTower.jpg) no-repeat scroll;
+    background:url(assets/ttgTower.jpg) no-repeat fixed;
     background-size: 100%;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     letter-spacing: 1px;
-   
+    font-weight: 600;
+    color: rgb(244, 52, 52);
+    font-size: 50px;
+    letter-spacing: 2px;   
 }
 .container {
     float: left ;
@@ -43,7 +46,6 @@ button {
     font-size: 12px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     letter-spacing: 1px;
-    
 }
 .btnForm {
     margin: auto;
@@ -53,6 +55,7 @@ button {
     font-size: 15px;
     border: 15px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    letter-spacing: 2px;
 }
 .btnTable {
     margin: auto;
@@ -71,15 +74,6 @@ table {
     /* background-color: rgb(64,191,219, 0.872); */
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
-h1 {
-    margin: auto;
-    text-align: center;
-    font-weight: 600;
-    color: rgb(244, 52, 52);
-    font-size: 50px;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    letter-spacing: 2px;
-}
 tr {
     border-collapse: collapse;
     width: 100%;
@@ -90,17 +84,17 @@ tr {
     border-color: rgb(0, 0, 0);
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
-.a {
+th {
+    border-collapse: collapse;
+    border-bottom: 2px;
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    width:25%;
     font-size: 20px;
     font-weight: 250;
     background-color: rgb(64,191,219, 0.872);
     color: rgb(244, 52, 52);
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-.b {
-    font-size: 20px;
-    background-color: rgba(244, 52, 52, 0.850);
-    color: rgb(64,191,219);
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 td {
@@ -110,6 +104,10 @@ td {
     border-style: solid;
     border-color: rgb(0, 0, 0);
     width:25%;
+    font-size: 20px;
+    background-color: rgba(244, 52, 52, 0.850);
+    color: rgb(64,191,219);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 form {
     margin: auto;
@@ -118,6 +116,7 @@ form {
     font-size: 20px;
     font-weight: 600;
     background-color: rgba(255, 255, 255, 0.413);
+    letter-spacing: 2px;
 }
 input{
     color: rgb(0, 0, 0);
