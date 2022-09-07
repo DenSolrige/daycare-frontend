@@ -10,11 +10,11 @@
     <label for="behavior"> Behavior: </label>
     <input name="behavior" type="text" [(ngModel)]="behavior">
 </fieldset>
-<button (click)="createGrade()">Add Grade</button>
+<button class="btnForm" (click)="createGrade()">Add Grade</button>
 </form>
 
 <input name= "idInput" type="number" [(ngModel)]="studentId">
-<button (click)="getGradeByStudentId()">Search Grade</button>
+<button class="btnForm" (click)="getGradeByStudentId()">Search Grade</button>
 <br>
 <thead>
     <tr>
@@ -32,7 +32,7 @@
     <td>{{g.timeReported * 1000 | date:'short'}}</td>
     <td>{{g.note}}</td>
     <td>{{g.behavior}}</td>
-    <td><button (click)="deleteGrade(g.gradeId)">Delete Grade</button></td>
+    <td><button class="btnTable" (click)="deleteGrade(g.gradeId)">Delete Grade</button></td>
 </tr>
 </tbody>
 
