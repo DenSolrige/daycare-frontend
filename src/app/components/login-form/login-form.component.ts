@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginUtilServiceService } from 'src/app/services/login-util-service.service';
+import { UserInfoService } from 'src/app/services/user-info.service';
 
 @Component({
   selector: 'app-login-form',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService:LoginUtilServiceService, private router:Router, private userInfo:UserInfoService) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +25,13 @@ export class LoginFormComponent implements OnInit {
     // if(userToken.isTeacher){this.router.navigateByUrl("gradepage")}
     // if(userToken.isGuardian){this.router.navigateByUrl("studentpage")}
     // just for now, for testing
-    alert(`Hey you attempted to login as ${this.guardianUsername} ${this.guardianPassword}`)
+    const loginCreds = {username:this.guardianUsername, password:this.guardianPassword}
+    const response = await this.loginService.login(JSON.stringify(loginCreds));
+    if(response != null){
+      localStorage.setItem("userInfo", response);
+      alert("Successfully logged in.");
+      this.router.navigateByUrl("/studentpage");
+    }
   }
 
 }
