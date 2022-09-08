@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { ApplicationModule, Injectable } from '@angular/core';
 import { catchError, firstValueFrom, throwError } from 'rxjs';
+import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
 
 @Injectable({
   providedIn: 'root'
