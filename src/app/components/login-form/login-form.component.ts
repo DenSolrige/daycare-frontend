@@ -28,7 +28,7 @@ export class LoginFormComponent implements OnInit {
     const loginCreds = {username:this.guardianUsername, password:this.guardianPassword}
     const response = await this.loginService.login(JSON.stringify(loginCreds));
     if(response != null){
-      localStorage.setItem("userInfo", response);
+      localStorage.setItem("userInfo", JSON.stringify(response));
       alert("Successfully logged in.");
       this.router.navigateByUrl("/studentpage");
     }

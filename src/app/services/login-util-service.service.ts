@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { catchError, firstValueFrom, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +9,27 @@ export class LoginUtilServiceService {
 
   constructor(private http:HttpClient) { }
 
-  async login(json:string):Promise<string | null>{
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    const observable = this.http.post<string>("http://localhost:8080/login", json, {observe: 'response', headers: headers});
-    const savedJson = firstValueFrom(observable);
+  async login(json:string):Promise<JSON | null>{
+    const observable = this.getLogin(json);
+    const savedJson = await firstValueFrom(observable);
 
-    if((await savedJson).status == 400 || (await savedJson).status == 404){
+    return savedJson.body;
+  }
+
+  getLogin(json:string){
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const newJSON:JSON = JSON.parse(json);
+    return this.http.post<JSON>("http://localhost:7070/login", newJSON, {responseType: 'text' as 'json', observe: 'response', headers: headers}).pipe(catchError(this.handleError));
+  }
+
+  handleError(error:HttpErrorResponse){
+    if(error.status == 400 || error.status == 404){
       alert("Username or password is incorrect.");
-      return null;
+      return throwError(() => new Error('Username or password is incorrect'));
     }
-    return (await savedJson).body;
+    else{
+      console.log(error.status);
+      return throwError(() => new Error('An error occurred. Please try again later.'))
+    }
   }
 }
