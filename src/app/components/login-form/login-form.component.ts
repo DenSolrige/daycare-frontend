@@ -29,8 +29,10 @@ export class LoginFormComponent implements OnInit {
     const response = await this.loginService.login(JSON.stringify(loginCreds));
     if(response != null){
       localStorage.setItem("userInfo", JSON.stringify(response));
+      this.router.navigateByUrl("/studentpage").then(() => {
+        window.location.reload();
+      });;;
       alert("Successfully logged in.");
-      this.router.navigateByUrl("/studentpage");
     }
   }
 

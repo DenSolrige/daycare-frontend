@@ -3,7 +3,7 @@ body {
     text-align: center;
     margin: auto;
     background:url(assets/ttgTower.jpg) no-repeat fixed;
-    background-size: 100%;
+    background-size: 100% 100%;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     letter-spacing: 1px;
     font-weight: 600;
@@ -14,7 +14,7 @@ body {
 .container {
     float: left ;
     position: relative;
-    width: 20%;
+    width: 25%;
     height: 75px;
     letter-spacing: 2px;
 }

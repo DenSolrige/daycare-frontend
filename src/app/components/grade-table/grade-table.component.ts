@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Grade } from 'src/app/models/grade';
 import { GradeUtilServiceService } from 'src/app/services/grade-util-service.service';
+import { JwtDecoderService } from 'src/app/services/jwt-decoder.service';
 import { StudentIdDataService } from 'src/app/services/student-id-data.service';
 
 @Component({
@@ -12,12 +13,14 @@ import { StudentIdDataService } from 'src/app/services/student-id-data.service';
 })
 export class GradeTableComponent implements OnInit {
 
-  constructor(private gradeService:GradeUtilServiceService, private studentIdData:StudentIdDataService, private router:Router) { }
+  constructor(private gradeService:GradeUtilServiceService, private studentIdData:StudentIdDataService, private router:Router, private jwtDecoder:JwtDecoderService) { }
   grades:Grade[] = [];
   studentId:number = this.studentIdData.studentId;
   note:string="";
   behavior:string = "";
   newId = 0;
+
+  role:string = this.jwtDecoder.parseJwt().role;
 
   ngOnInit(): void {
       this.getGradeByStudentId();
@@ -29,6 +32,7 @@ export class GradeTableComponent implements OnInit {
       , behavior:this.behavior};
       const newGrade:Grade = await this.gradeService.createGrade(grade);
       this.newId = newGrade.gradeId;
+      
       //Alert
       //Needs to check the status of the HTTP request before the alert.
       alert("Created a grade for the student");
