@@ -15,28 +15,28 @@ export class StudentUtilServiceService {
 
   async getAllStudents():Promise<Student[]>{
     const headers = new HttpHeaders().set('auth', this.authString).set('Content-Type', 'application/json');
-    console.log(headers.get('auth'));
-    const observable = this.http.get<Student[]>("http://localhost:8080/students", {headers: headers});
+    const observable = this.http.get<Student[]>("https://daycare.salmoncliff-9cdcd619.centralus.azurecontainerapps.io/students", {headers: headers});
     const savedStudents = await firstValueFrom(observable);
+    
     return savedStudents;
   }
 
   async createStudent(student:Student):Promise<Student>{
     const headers = new HttpHeaders().set('auth', this.authString).set('Content-Type', 'application/json');
-    const observable = this.http.post<Student>("http://localhost:8080/students", student, {headers: headers});
+    const observable = this.http.post<Student>("https://daycare.salmoncliff-9cdcd619.centralus.azurecontainerapps.io/students", student, {headers: headers});
     const savedStudent = firstValueFrom(observable);
     return savedStudent;
   }
 
   async deleteStudent(id:number){
       const headers = new HttpHeaders().set('auth', this.authString).set('Content-Type', 'application/json');
-      const observable = this.http.delete(`http://localhost:8080/students/${id}`, {headers: headers});
+      const observable = this.http.delete(`https://daycare.salmoncliff-9cdcd619.centralus.azurecontainerapps.io/students/${id}`, {headers: headers});
       const savedStudent = await firstValueFrom(observable);
   }
   
   async getStudentByName(name:string):Promise<Student[]>{
     const headers = new HttpHeaders().set('auth', this.authString).set('Content-Type', 'application/json');
-    const observable = this.http.get<Student[]>(`http://localhost:8080/students?name=${name}`, {headers: headers});
+    const observable = this.http.get<Student[]>(`https://daycare.salmoncliff-9cdcd619.centralus.azurecontainerapps.io/students?name=${name}`, {headers: headers});
     const savedStudents = await firstValueFrom(observable);
     return savedStudents;
   }
