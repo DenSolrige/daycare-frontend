@@ -5,7 +5,7 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
-  workflow_run:
+  workflow_dispatch:
 jobs:
   sonarcloud:
     name: SonarCloud
