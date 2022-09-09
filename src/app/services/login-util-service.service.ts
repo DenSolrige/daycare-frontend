@@ -20,7 +20,7 @@ export class LoginUtilServiceService {
   getLogin(json:string){
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const newJSON:JSON = JSON.parse(json);
-    return this.http.post<JSON>("http://localhost:7070/login", newJSON, {responseType: 'text' as 'json', observe: 'response', headers: headers}).pipe(catchError(this.handleError));
+    return this.http.post<JSON>("https://authentication.salmoncliff-9cdcd619.centralus.azurecontainerapps.io/login", newJSON, {responseType: 'text' as 'json', observe: 'response', headers: headers}).pipe(catchError(this.handleError));
   }
 
   handleError(error:HttpErrorResponse){

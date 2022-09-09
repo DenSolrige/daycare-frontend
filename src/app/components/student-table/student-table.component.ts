@@ -45,7 +45,6 @@ export class StudentTableComponent implements OnInit {
   viewGrades(id:number){
     this.studentIdData.studentId = id;
     // load the page for grades
-    console.log(this.studentIdData.studentId);
     this.router.navigateByUrl("/gradepage");
   }
 
