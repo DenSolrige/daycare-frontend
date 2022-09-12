@@ -14,7 +14,7 @@ export class GradeUtilServiceService {
 
   async createGrade(grade:Grade):Promise<Grade>{
     const headers = new HttpHeaders().set('auth', this.authString).set('Content-Type', 'application/json');
-    const observable = this.http.post<Grade>("http://https://daycare.salmoncliff-9cdcd619.centralus.azurecontainerapps.io/grades", grade, {headers: headers});
+    const observable = this.http.post<Grade>("https://daycare.salmoncliff-9cdcd619.centralus.azurecontainerapps.io/grades", grade, {headers: headers});
     const savedGrade = firstValueFrom(observable);
     return savedGrade;
   }
